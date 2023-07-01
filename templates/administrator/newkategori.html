@@ -1,0 +1,53 @@
+{% extends "administrator/header.html" %}
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <form action="" method="POST">
+
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+            {% endif %}
+
+            <ul>
+                <li>
+                    <label for="title">Kategori Başlığı Giriniz : </label>
+                    <input type="text" id="title" name="title" value="{{ request.form['title'] }}">
+                </li>
+                <li>
+                    <label for="url">Kategori Urls Giriniz : </label>
+                    <input type="text" id="url" name="url" value="{{ request.form['url'] }}">
+                </li>
+                <li>
+                    <button type="submit">Kategori EKle</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

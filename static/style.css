@@ -1,0 +1,1089 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+    outline: 0;
+    line-height: 1;
+    text-decoration: none;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: #cec5ff
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto
+}
+
+.header {
+    background: #8a89eb;
+    margin-bottom: 25px
+}
+
+.header .container {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px
+}
+
+.header .container .logo {
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff
+}
+
+.header .container nav ul {
+    display: flex;
+}
+
+.header .container nav ul li {
+    margin-left: 10px
+}
+
+.header .container nav ul li a {
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: 500
+}
+
+.header .container nav ul li.btn {
+    padding-left: 25px;
+    border-left: 1px solid #393a3b
+}
+
+.header .container nav ul li.btn a {
+    background: #7158e2;
+    margin-left: 5px;
+    border-radius: 5px
+}
+
+.main {
+    width: 100%
+}
+
+.main .yeni {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  background: #2e0f07;
+  border: 2px solid #2e0f07;
+  font-size: 30px;
+  color: #fff;
+  padding: 6px 15px;
+  border-radius: 5px;
+  z-index: 99999;
+  transition: transform 0.5s ease-in-out;
+}
+
+.main .yeni:hover {
+  transform: rotate(-90deg);
+}
+
+.main .secondmenu {
+  position: fixed;
+  top: 120px;
+  right: 70px;
+  width: 200px;
+  background: #cec5ff;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 99999;
+  display: none;
+}
+
+.main .secondmenu li {
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.main .secondmenu li:hover {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.main .secondmenu a {
+    color: #212121;
+}
+
+.main h3 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center
+}
+
+.main .articles article {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .03)
+}
+
+.main .articles article h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px
+}
+
+.main .articles article ul {
+    margin-bottom: 15px;
+    display: flex
+}
+
+.main .articles article ul li {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #ddd
+}
+
+.main .articles article ul li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border: none
+}
+
+.main .articles article .show-btn {
+    border: 1px solid #7158e2;
+    display: inline-block;
+    font-size: 16px;
+    color: #7158e2;
+    padding: 6px 15px;
+    border-radius: 5px
+}
+
+.form {
+    width: calc(100% - 250px);
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.form ul li {
+    margin-bottom: 15px
+}
+
+.form ul li label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.form ul li input {
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222
+}
+
+.form ul li input:focus {
+    color: #7158e2;
+    border-color: #7158e2
+}
+
+.form ul li button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.form .or {
+    display: block;
+    text-align: center;
+    color: #777;
+    margin-bottom: 10px
+}
+
+.form .form-url {
+    display: block;
+    text-align: center;
+    color: #7158e2;
+    text-decoration: underline
+}
+
+.post-detail {
+    padding: 20px;
+    margin-top: 40px;
+    background: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .06)
+}
+
+.post-meta {
+    padding-top: 20px;
+    text-align: center
+}
+
+.post-meta ul {
+    display: inline-flex
+}
+
+.post-meta ul li {
+    margin-right: 25px
+}
+
+/*# sourceMappingURL=style.css.map */
+.error {
+    padding: 8px 10px;
+    background: darkred;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.success {
+    padding: 8px 10px;
+    background: #009900;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.form ul li select {
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form ul li textarea {
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+    line-height: 1.6;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222;
+    appearance: none;
+    cursor: pointer;
+}
+
+.sol {
+    width: 300px;
+    height: 920px;
+    float: left;
+    margin-left:10px;
+    overflow: hidden;
+}
+
+.sol .uyepanelform {
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.sol .uyepanelform ul li {
+    margin-bottom: 15px
+}
+
+.sol .uyepanelform ul li label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.sol .uyepanelform ul li button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.sol .dkullanicilar {
+    margin-top: 20px;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.sol .dkullanicilar ul li {
+    margin-bottom: 15px
+}
+
+.sol .dkullanicilar ul li label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.sol .dkullanicilar ul li button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.sol .dkullanicilar .onlinekuldetail {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid #7158e2;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.sol .dkullanicilar .onlinekuldetail a {
+    color: #212121;
+}
+
+.sol .dkullanicilar .onlinekuldetail a:hover {
+    color: #7158e2;
+}
+
+.sol .dkullanicilar .onlinekuldetail img {
+    width: 7%;
+    margin-right: 2%;
+}
+
+.orta {
+    margin-left: 20px;
+    width: calc(100% - 345px);
+    height: 900px;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.orta .body {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.orta .body ul li {
+    margin-bottom: 15px
+}
+
+.orta .body ul li label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.orta .body ul li input {
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222
+}
+
+.orta .body ul li input:focus {
+    color: #7158e2;
+    border-color: #7158e2
+}
+
+.orta .body ul li button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.orta .body .or {
+    display: block;
+    text-align: center;
+    color: #777;
+    margin-bottom: 10px
+}
+
+.orta .body .form-url {
+    display: block;
+    text-align: center;
+    color: #7158e2;
+    text-decoration: underline
+}
+
+.orta .body .post-detail {
+    padding: 20px;
+    margin-top: 40px;
+    background: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .06)
+}
+
+.orta .body ul li textarea {
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+    line-height: 1.6;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222;
+    appearance: none;
+    cursor: pointer;
+}
+
+.orta .body .post-meta {
+    padding-top: 20px;
+    text-align: center
+}
+
+.orta .body .post-meta ul {
+    display: inline-flex
+}
+
+.orta .body .post-meta ul li {
+    margin-right: 25px
+}
+
+/*# sourceMappingURL=style.css.map */
+.orta .body .error {
+    padding: 8px 10px;
+    background: darkred;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.orta .body .success {
+    padding: 8px 10px;
+    background: #009900;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.orta .body ul li select {
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: #222;
+    appearance: none;
+    cursor: pointer;
+}
+
+.orta .body .table {
+    width: 100%;
+    border: 2px solid #7158e2;
+    border-width: 3px;
+    border-radius: 7px;
+}
+
+.orta .body .table ul li {
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+.orta .body .table ul li label {
+    padding: 10px 10px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.orta .body .table ul li .button {
+    padding: 10px 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.orta .body .table .progress::-webkit-progress-value {
+  background-color: #7158e2;
+}
+
+.orta .body .table .progress::-webkit-progress-bar {
+  background-color: #fff;
+  width: 156px;
+}
+
+.orta .body .table .progress::-webkit-progress-inner-element {
+  border: 2px solid #7158e2;
+  border-radius: 7px;
+}
+
+.orta .body .cattable {
+    width: 100%;
+    border: 2px solid #7158e2;
+    border-width: 3px;
+    border-radius: 7px;
+}
+
+.orta .body .cattable ul li {
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+.orta .body .cattable ul li label {
+    padding: 10px 10px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.orta .body .cattable ul li .button {
+    padding: 10px 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.orta .body .cattable tbody tr td .progress::-webkit-progress-value {
+  background-color: #7158e2;
+}
+
+.orta .body .cattable tbody tr td .progress::-webkit-progress-bar {
+  background-color: #fff;
+  width: 156px;
+}
+
+.orta .body .cattable tbody tr td .progress::-webkit-progress-inner-element {
+    border: 2px solid #7158e2;
+    border-radius: 7px;
+}
+
+.orta .body .aramamotoru {
+    width: 100%;
+    border: 2px solid #7158e2;
+    border-width: 3px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.orta .body .aramamotoru ul li {
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+.orta .body .aramamotoru ul li label {
+    padding: 10px 10px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.orta .body .aramamotoru ul li .button {
+    padding: 10px 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background: #7158e2;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.orta .body .aramamotoru ul li input {
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid #7158e2;
+    color: #222
+}
+
+.orta .body .aramamotoru ul li input:focus {
+    color: #7158e2;
+    border-color: #7158e2
+}
+
+.reklam{
+    margin: auto;
+    position: relative;
+    top: calc(100% - 520px);
+    left: calc(100% - 1400px);
+    width: 725px;
+    height: 85px;
+    border: 2px solid #7158e2;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.orta .body .box {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* Öğeleri sola hizala */
+    align-items: flex-start; /* Öğeleri yukarıya hizala */
+    flex-wrap: wrap; /* Öğeleri satır atlayarak sırala */
+    overflow-y: auto; /* Dikey scrollbar eklemek */
+    max-height: calc(100% - 40px); /* Scrollbar'ın `.orta .body` içine sığmasını sağla */
+    scrollbar-width: thin; /* Scrollbar'ı ince hale getir */
+    scrollbar-color: transparent transparent; /* Scrollbar'ı saydam yap */
+}
+
+.orta .body .box::-webkit-scrollbar {
+    width: 6px; /* Scrollbar'ın genişliği */
+    background-color: transparent; /* Scrollbar arka plan rengi */
+}
+
+.orta .body .box::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Scrollbar dolgu rengi */
+}
+
+.orta .body .box::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Scrollbar dolgu rengi - hover durumu */
+}
+
+.orta .body .box .container {
+    width: calc(33.33% - 20px); /* Öğeleri eşit genişlikte 3 sütuna sığdır */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px; /* Kartlar arasında boşluk bırak */
+}
+
+.orta .body .box .containertwo {
+    width: 100%; /* Öğeleri eşit genişlikte 3 sütuna sığdır */
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orta .body .box .container .card {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+}
+
+.orta .body .box .container .card .face{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.orta .body .box .container .card .face.face1{
+    position: relative;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+
+.orta .body .box .container .card:hover .face.face1{
+    background: #ff0057;
+    transform: translateY(0);
+}
+
+.orta .body .box .container .card .face.face1 .content{
+    opacity: 0.2;
+    transition: 0.5s;
+}
+
+.orta .body .box .container .card:hover .face.face1 .content{
+    opacity: 1;
+}
+
+.orta .body .box .container .card .face.face1 .content img{
+    max-width: 100px;
+}
+
+.orta .body .box .containertwo img{
+    max-width: calc(100% - 0.2px);
+    float: left;
+    margin-right: 15px
+}
+
+.orta .body .box .container .card .face.face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.orta .body .box .containertwo h3{
+    padding: 0;
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.6;
+}
+
+.orta .body .box .containertwo p{
+    margin: 0;
+    word-spacing: 15px;
+    line-height: 1.4;
+    padding: 0;
+}
+
+.orta .body .box .container .card .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100px);
+}
+
+.orta .body .box .container .card:hover .face.face2{
+    transform: translateY(0);
+}
+
+.orta .body .box .container .card .face.face2 .content p{
+    margin: 0;
+    padding: 0;
+}
+
+.orta .body .box .container .card .face.face2 .content a{
+    margin: 15px 0 0;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.orta .body .box .container .card .face.face2 .content a:hover{
+    background: #333;
+    color: #fff;
+}
+
+@media screen and (min-width: 775px) and (max-width: 850px) {
+    .logo{
+        display: none;
+    }
+    .header .container nav{
+        margin-left: auto;
+    }
+    .header .container nav ul li a{
+        font-size: 10px
+        color: #fff;
+        padding: 4px 7px;
+        font-weight: 250
+    }
+    .index-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .sol{
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+    }
+    .sol .uyepanelform{
+        width: 100%;
+    }
+    .sol .dkullanicilar{
+        width: 100%;
+    }
+    .orta{
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+    }
+    .orta .body{
+        width: 100%;
+    }
+
+    .orta .body .aramamotoru ul li label{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li input{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li .button{
+        font-size: 8px;
+    }
+    .orta .body .table ul li label {
+        font-size: 10px;
+    }
+    .orta .body .table ul li .button {
+        font-size: 8px;
+    }
+    .orta .body .cattable ul li label {
+        font-size: 10px;
+    }
+    .orta .body .cattable ul li .button {
+        font-size: 8px;
+    }
+    .sol .dkullanicilar .onlinekuldetail {
+        position: relative;
+        font-size: 25px;
+        text-align: center;
+        border-bottom: 2px solid #7158e2;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a {
+        color: #212121;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a:hover {
+        color: #7158e2;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail img {
+        width: 3%;
+        margin-right: 1%;
+    }
+    .reklam{
+        position: relative;
+        top: calc(100% - 500px);
+        left: calc(100% - 770px);
+        width: 725px;
+        height: 85px;
+        border: 2px solid #7158e2;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 764px) and (max-width: 774px) {
+    .logo{
+        display: none;
+    }
+    .header .container nav{
+        margin-left: auto;
+    }
+    .header .container nav ul li a{
+        font-size: 5px
+        color: #fff;
+        padding: 2px 4px;
+        font-weight: 150
+    }
+    .index-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .sol{
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+    }
+    .sol .uyepanelform{
+        width: 100%;
+    }
+    .sol .dkullanicilar{
+        width: 100%;
+    }
+    .orta{
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+    }
+    .orta .body{
+        width: 100%;
+    }
+
+    .orta .body .aramamotoru ul li label{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li input{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li .button{
+        font-size: 7px;
+    }
+    .orta .body .table ul li label {
+        font-size: 13px;
+    }
+    .orta .body .table ul li .button {
+        font-size: 7px;
+    }
+    .orta .body .cattable ul li label {
+        font-size: 13px;
+    }
+    .orta .body .cattable ul li .button {
+        font-size: 7px;
+    }
+    .sol .dkullanicilar .onlinekuldetail {
+        position: relative;
+        font-size: 25px;
+        text-align: center;
+        border-bottom: 2px solid #7158e2;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a {
+        color: #212121;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a:hover {
+        color: #7158e2;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail img {
+        width: 3%;
+        margin-right: 1%;
+    }
+    .reklam{
+        position: relative;
+        top: calc(100% - 1000px);
+        left: calc(100% - 750px);
+        width: 725px;
+        height: 85px;
+        border: 2px solid #7158e2;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 751px) and (max-width: 763px) {
+    .logo{
+        display: none;
+    }
+    .header .container nav{
+        margin-left: auto;
+    }
+    .header .container nav ul li a{
+        font-size: 5px
+        color: #fff;
+        padding: 2px 4px;
+        font-weight: 150
+    }
+    .index-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .sol{
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+    }
+    .sol .uyepanelform{
+        width: 100%;
+    }
+    .sol .dkullanicilar{
+        width: 100%;
+    }
+    .orta{
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+    }
+    .orta .body{
+        width: 100%;
+    }
+
+    .orta .body .aramamotoru ul li label{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li input{
+        font-size: 16px;
+    }
+    .orta .body .aramamotoru ul li .button{
+        font-size: 5px;
+    }
+    .orta .body .table ul li label {
+        font-size: 13px;
+    }
+    .orta .body .table ul li .button {
+        font-size: 6px;
+    }
+    .orta .body .cattable ul li label {
+        font-size: 13px;
+    }
+    .orta .body .cattable ul li .button {
+        font-size: 6px;
+    }
+    .sol .dkullanicilar .onlinekuldetail {
+        position: relative;
+        font-size: 25px;
+        text-align: center;
+        border-bottom: 2px solid #7158e2;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a {
+        color: #212121;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail a:hover {
+        color: #7158e2;
+    }
+
+    .sol .dkullanicilar .onlinekuldetail img {
+        width: 3%;
+        margin-right: 1%;
+    }
+    .reklam{
+        position: relative;
+        top: calc(100% - 1000px);
+        left: calc(100% - 750px);
+        width: 725px;
+        height: 85px;
+        border: 2px solid #7158e2;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+}

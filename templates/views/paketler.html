@@ -1,0 +1,64 @@
+{% extends "views/header.html" %}
+
+
+{% block uye %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <ul>
+            <li>
+                <h3> PAKETLER </h3>
+            </li>
+        </ul>
+
+        <div class="box">
+            {% if pakets %}
+                {% for paket in pakets %}
+                    <div class="container">
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="{{ url_for('static', filename='uploads/'+paket['pac_img']) }}">
+                                    <h3>{{ paket['pac_title'] }}</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p class="contents">{{ paket['pac_contentiki'] }}</p>
+                                    <p>Paket Fiyatı: {{ paket['pac_fiyat'] }}</p>
+                                    <a href="{{ url_for('userpacketsdetay', id=paket['pac_id']) }}">Paket Detayı Görmek İçin Tıkla</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elif paketss %}
+                {% for paket in paketss %}
+                    <div class="containertwo">
+                        <img src="{{ url_for('static', filename='uploads/'+paket['pac_img']) }}">
+                        <h3>{{ paket['pac_title'] }}</h3>
+                        <p>{{ paket['pac_content'] }}</p>
+                        <p>Paket Fiyatı: {{ paket['pac_fiyat'] }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

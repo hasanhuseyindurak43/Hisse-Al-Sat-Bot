@@ -1,0 +1,251 @@
+{% extends "administrator/header.html" %}
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <form action="" method="POST">
+
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+            {% endif %}
+
+            {% for cat in cats %}
+            <ul>
+                <li>
+                    <label for="title">Kategori Başlığı Giriniz : </label>
+                    <input type="text" id="title" name="title" value="{{ cat['category_name'] }}">
+                </li>
+                <li>
+                    <label for="url">Kategori Url Giriniz : </label>
+                    <input type="text" id="url" name="url" value="{{ cat['category_url'] }}">
+                </li>
+                <li>
+                    <button type="submit">Kategori Güncelle</button>
+                </li>
+            </ul>
+            {% endfor %}
+        </form>
+
+        {% if urls %}
+            <table border=1 class="table">
+                <thead>
+                    <td colspan="4">
+                        <ul>
+                            <li>
+                                <label> <center> Toplam {{ urls[0]['total_url_count'] }} Adet Bağlantı Adresi Mevcut. </center> </label>
+                            </li>
+                        </ul>
+                    </td>
+                </thead>
+                <thead>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Bot Statu
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Bot Name
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td colspan="6">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Configuration
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </thead>
+            {% for url in urls %}
+                <tbody>
+                    <td>
+                        {% if url['ens_statu'] == 1 %}
+                            <ul>
+                                <li>
+                                    <label> Aktif </label>
+                                </li>
+                            </ul>
+                        {% elif url['ens_statu'] == 0 %}
+                            <ul>
+                                <li>
+                                    <label> Pasif </label>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label> {{ url['ens_title'] }} </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                 <a class="button" onclick="ensDuzenle('{{ url_for('duzenle', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Düzenle </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensSil('{{ url_for('sil', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Sil </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensAktif('{{ url_for('aktifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Aktif Et </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensPasif('{{ url_for('pasifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Pasif Et </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tbody>
+            {% endfor %}
+            </table>
+        {% else %}
+            <table border=1 class="table">
+                <thead>
+                    <td colspan="4">
+                        <ul>
+                            <li>
+                                <label> <center> Toplam 0 Adet Bağlantı Adresi Mevcut. </center> </label>
+                            </li>
+                        </ul>
+                    </td>
+                </thead>
+                <thead>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Bot Statu
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Bot Name
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td colspan="6">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Configuration
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </thead>
+            {% for url in urls %}
+                <tbody>
+                    <td>
+                        {% if url['ens_statu'] == 1 %}
+                            <ul>
+                                <li>
+                                    <label> Aktif </label>
+                                </li>
+                            </ul>
+                        {% elif url['ens_statu'] == 0 %}
+                            <ul>
+                                <li>
+                                    <label> Pasif </label>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label> {{ url['ens_title'] }} </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                 <a class="button" onclick="ensDuzenle('{{ url_for('duzenle', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Düzenle </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensSil('{{ url_for('sil', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Sil </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensAktif('{{ url_for('aktifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Aktif Et </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <a class="button" onclick="ensPasif('{{ url_for('pasifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Pasif Et </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tbody>
+            {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

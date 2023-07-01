@@ -1,0 +1,6 @@
+PIL._tkinter_finder
+Pillow
+PIL
+
+customtkinter -> venv dosyasından seç
+

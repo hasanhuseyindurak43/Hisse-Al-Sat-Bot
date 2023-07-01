@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hisse Al Sat Botu İle Yatırımına Yatırım Kat.... :)">
+    <meta name="keywords" content="HİSSE AL/SAT BOTU, al sat botu, crypto al sat botu, hisse al sat botu, hisse botu, hisse yatırım botu, crypto trading botu, crypto trading, stock buy and sell bot, stock bot, stock trading bot">
+    <meta name="author" content="Hasan Hüseyin Durak">
+    <title>HİSSE AL / SAT BOTU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='web.ico') }}" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <a href="{{ url_for('home') }}" class="logo">
+            HİSSE AL / SAT BOTU
+        </a>
+
+        <nav>
+            <ul>
+                {% if 'user_id' in session %}
+
+                    {% if durum['user_statu'] == 1 %}
+
+                        <li>
+                            <a href="{{ url_for('users') }}">Kullanıcılar</a>
+                            <a href="{{ url_for('newcat') }}">Kategori Ekle</a>
+                            <a href="{{ url_for('category')}}">Kategoriler</a>
+                            <a href="{{ url_for('ensturamans')}}">Botlar</a>
+                            <a href="{{ url_for('newensturamans') }}">Bot Ekle</a>
+                            <a href="{{ url_for('packets') }}">Paketler</a>
+                            <a href="{{ url_for('newpackets') }}">Paket Ekle</a>
+                        </li>
+                        <li class="btn">
+                            <a href="{{ url_for('logout', id=session['user_id']) }}">Çıkış yap </a>
+                        </li>
+
+                    {% endif %}
+
+                {% else %}
+                    <li>
+                        <a href="#sos">Hakkımızda</a>
+                    </li>
+                    <li class="btn">
+                        <a href="{{ url_for('login') }}">Giriş yap</a>
+                        <a href="{{ url_for('register')}}">Kayıt Ol</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<div id="istek">
+    <main class="main container">
+        <div class="index-container">
+            {% if durum['user_statu'] == 1 %}
+
+                {% if 'user_id' in session %}
+
+                    <a href="#yeni" class="yeni">+</a>
+                    <div class="secondmenu">
+                        <ul>
+                            <li><a href="{{ url_for('newcat') }}">Kategori Ekle</a></li>
+                            <li><a href="{{ url_for('newensturamans') }}">Bot Ekle</a></li>
+                            <li><a href="{{ url_for('newpackets') }}">Paket Ekle</a></li>
+                        </ul>
+                    </div>
+                    {% block admin %}{% endblock %}
+
+                {% endif %}
+
+            {% endif %}
+        </div>
+    </main>
+</div>
+
+{% extends "administrator/foother.html" %}

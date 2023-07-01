@@ -1,0 +1,87 @@
+{% extends "views/header.html" %}
+
+{% block uye %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <form action="" method="POST">
+
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+            {% endif %}
+
+            <ul>
+                <li>
+                    <label for="title">Bot Başlığı</label>
+                    <input type="text" id="title" name="title" value="{{ request.form['title'] }}">
+                </li>
+                <li>
+                    <label for="category">Bot Kategorisi</label>
+                    <select id="category" name="category_id">
+                        <option value="">Seçin {{ request.form['category_id'] }}</option>
+                        {% for category in categories() %}
+                        <option value="{{ category['category_id'] }}">{{ category['category_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+                <li>
+                    <label for="mustelno">Müşteri Tel No</label>
+                    <input type="text" id="mustelno" name="mustelno" value="{{ request.form['mustelno'] }}">
+                </li>
+                <li>
+                    <label for="musno">Müşteri Numarası</label>
+                    <input type="text" id="musno" name="musno" value="{{ request.form['musno'] }}">
+                </li>
+                <li>
+                    <label for="mussifre">Müşteri Şifresi</label>
+                    <input type="text" id="mussifre" name="mussifre" value="{{ request.form['mussifre'] }}">
+                </li>
+                <li>
+                    <label for="yuzdefiyat">Paranın Yüzde Kaçı Kullanılsın</label>
+                    <input type="text" id="yuzdefiyat" name="yuzdefiyat" value="{{ request.form['yuzdefiyat'] }}">
+                    <br>
+                    <br>
+                    <button id="hesapla" type="button">Hesapla</button>
+                    <br>
+                    <br>
+                    <label id="sonuc"></label>
+                </li>
+                <li>
+                    <label>Favori Ensturamanlarınızı Giriniz</label>
+                    <textarea id="ensturamanlar" name="ensturamanlar" rows="4" cols="50"></textarea>
+                    <br>
+                    <br>
+                    <label> zoren,ykbnk Örnekte ki gibi virgül koyarak giriniz.</label>
+                </li>
+                <li>
+                    <button type="submit">Bot Ekle</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

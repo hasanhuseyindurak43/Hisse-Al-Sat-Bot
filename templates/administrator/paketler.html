@@ -1,0 +1,158 @@
+{% extends "administrator/header.html" %}
+
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <ul>
+            <li>
+                <h3> PAKETLER </h3>
+            </li>
+        </ul>
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+        {% endif %}
+        <form action="" method="POST">
+            <table class="aramamotoru">
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Aranacak Paket Adı :
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="text" name="paketname">
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <button type="submit">Ara</button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+            </table>
+        </form>
+        <table border=1 class="table">
+            <thead>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    Paket Statu
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    Paket Name
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="6">
+                        <ul>
+                            <li>
+                                <label>
+                                    Configuration
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </thead>
+        {% for paket in pakets %}
+            <tbody>
+                <td>
+                    {% if paket['pac_statu'] == 1 %}
+                        <ul>
+                            <li>
+                                <label> Aktif </label>
+                            </li>
+                        </ul>
+                    {% elif paket['pac_statu'] == 0 %}
+                        <ul>
+                            <li>
+                                <label> Pasif </label>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <label> {{ paket['pac_title'] }} </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                             <a class="button" onclick="pacDuzenle('{{ url_for('editpackets', id=paket['pac_id']) }}', `{{paket['pac_title']}}`)"> Düzenle </a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="button" onclick="pacSil('{{ url_for('deletepackets', id=paket['pac_id']) }}', `{{paket['pac_title']}}`)"> Sil </a>
+                        </li>
+                    </ul>
+                </td>
+                <td colspan="2">
+                    <ul>
+                        <li>
+                            <a class="button" onclick="pacAktif('{{ url_for('aktifyappackets', id=paket['pac_id']) }}', `{{paket['pac_title']}}`)"> Aktif Et </a>
+                        </li>
+                    </ul>
+                </td>
+                <td colspan="2">
+                    <ul>
+                        <li>
+                            <a class="button" onclick="pacPasif('{{ url_for('pasifyappackets', id=paket['pac_id']) }}', `{{paket['pac_title']}}`)"> Pasif Et </a>
+                        </li>
+                    </ul>
+                </td>
+            </tbody>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "views/header.html" %}
+
+
+{% block uye %}
+
+    <div class="sol">
+        <div class="uyepanelform">
+
+        </div>
+
+        <div class="dkullanicilar">
+            {% if onlineuser %}
+                {% for onuser in onlineuser %}
+                    <div class="onlinekuldetail">
+                        <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="orta">
+        <div class="body">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block admin %}
+
+    <div class="sol">
+        <div class="uyepanelform">
+
+        </div>
+
+        <div class="dkullanicilar">
+            {% if onlineuser %}
+                {% for onuser in onlineuser %}
+                    <div class="onlinekuldetail">
+                        <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="orta">
+        <div class="body">
+            <ul>
+                <li>
+                    <h3> KULLANICILAR </h3>
+                </li>
+            </ul>
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+            {% if success %}
+                <div class="success">
+                    {{ success }}
+                </div>
+            {% endif %}
+            <form action="" method="POST">
+                <table class="aramamotoru">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            Aranacak Kullanıcı Adı :
+                                        </label>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <input type="text" name="kuladi">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <button type="submit">Ara</button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                </table>
+            </form>
+            <table border=1 class="table">
+            {% if users %}
+                <thead>
+                    <tr>
+                        <td colspan="8">
+                            <ul>
+                                <li>
+                                    <label> <center> Toplam {{ users[0]['user_total_count'] }} Adet Kullanıcı Mevcut. </center> </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label> Statu </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label> Kullanıcı Adı </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label> Kullanıcı Kayıt Tarihi </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label> Kullanıcı En Son Giriş Tarihi </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </thead>
+                {% endif %}
+                {% for user in users %}
+                    <tbody>
+                        <td>
+                            {% if user['user_statu'] == 1 %}
+                                <ul>
+                                    <li>
+                                        <label> Admin </label>
+                                    </li>
+                                </ul>
+                            {% elif user['user_statu'] == 0 %}
+                                <ul>
+                                    <li>
+                                        <label> Üye </label>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        </td>
+                        <td> {{ user['user_name'] }} </td>
+                        <td> {{ user['user_create_date'] | timeAgo }} </td>
+                        <td> {{ user['user_update_date'] | timeAgo }} </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a class="button" onclick="userDuzenle('{{ url_for('userduzenle', id=user['user_id']) }}', `{{user['user_name']}}`)"> Düzenle </a>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a class="button" onclick="userSil('{{ url_for('usersil', id=user['user_id']) }}', `{{user['user_name']}}`)"> Sil </a>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a class="button" onclick="userAdminYap('{{ url_for('useradminyap', id=user['user_id']) }}', `{{user['user_name']}}`)"> Admin Yap </a>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a class="button" onclick="userUyeYap('{{ url_for('useruyeyap', id=user['user_id']) }}', `{{user['user_name']}}`)"> Üye YAp </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block misafir %}
+
+    <h3>Misafir Paneli</h3>
+
+{% endblock %}

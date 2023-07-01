@@ -1,0 +1,183 @@
+{% extends "administrator/header.html" %}
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <ul>
+            <li>
+                <h3> Kategorileriniz </h3>
+            </li>
+        </ul>
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+        {% endif %}
+        <form action="" method="POST">
+            <table class="aramamotoru">
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Aranacak Kategori Adı :
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="text" name="katadi">
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <button type="submit">Ara</button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+            </table>
+        </form>
+        <table border=1 class="cattable">
+            <thead>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    ID
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    NAME
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    URL
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    OFFLİNE BOT
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    ONLİNE BOT
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <label>
+                                    EDİT & DELETE
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </thead>
+        {% for cat in cats %}
+            <tbody>
+                <td>
+                    <ul>
+                        <li>
+                            <label>
+                                {{ cat['category_id']}}
+                            </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <label>
+                                {{ cat['category_name'] }}
+                            </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <label>
+                                {{ cat['category_url'] }}
+                            </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <progress class="progress" value="{{ cat['total_status_0_count']}}" max="2000000000"></progress>
+                    <label> {{ cat['total_status_0_count']}}% </label>
+                </td>
+                <td>
+                    <progress class="progress" value="{{ cat['total_status_1_count']}}" max="2000000000"></progress>
+                    <label> {{ cat['total_status_1_count']}}% </label>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="button" onclick="catDuzenle('{{ url_for('catduzenle', id=cat['category_id']) }}', `{{cat['category_name']}}`)"> Düzenle </a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="button" onclick="catSil('{{ url_for('catsil', id=cat['category_id']) }}', `{{cat['category_name']}}`)"> Sil </a>
+                        </li>
+                    </ul>
+                </td>
+            </tbody>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

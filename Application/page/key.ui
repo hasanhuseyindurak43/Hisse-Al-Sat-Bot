@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>375</width>
+    <height>334</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hisse Al Sat Bot</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/img/icon.ico</normaloff>:/img/icon.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralwidget{
+	border-image: url(:/img/icon.ico);
+	background-repeat: no-repeat;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="loginFrame">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>311</width>
+      <height>230</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#loginFrame{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>291</width>
+       <height>166</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Access Key Giriniz : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accesskey">
+          <property name="styleSheet">
+           <string notr="true">#accesskey{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Secret Key Giriniz :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="secretkey">
+          <property name="styleSheet">
+           <string notr="true">#secretkey{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Kullanıcı Adı Giriniz:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="kuladi">
+          <property name="styleSheet">
+           <string notr="true">#kuladi{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Kullanıcı Şifre Giriniz:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="kulsifre">
+          <property name="styleSheet">
+           <string notr="true">#kulsifre
+{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="loginLabel">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>30</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#loginLabel{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+    </property>
+    <property name="text">
+     <string>         LOGİN</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cikisBtn">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>10</y>
+      <width>31</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#cikisBtn
+{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 8pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}
+#cikisBtn::hover
+{
+	color: rgb(224, 27, 36);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="altBtn">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>31</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#altBtn
+{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 8pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}
+#altBtn::hover
+{
+	color: rgb(224, 27, 36);
+	background-color: rgb(255, 255, 255);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(26, 95, 180);
+	border-radius: 7px;
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="runLoginBtn">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>260</y>
+      <width>88</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#runLoginBtn{
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 95, 180);
+	font: 75 italic 14pt &quot;Ubuntu&quot;;
+	border: 3px solid rgb(255, 255, 255);
+	border-radius: 7px;
+}</string>
+    </property>
+    <property name="text">
+     <string>İLERİ</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

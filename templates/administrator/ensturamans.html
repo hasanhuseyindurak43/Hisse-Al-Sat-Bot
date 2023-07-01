@@ -1,0 +1,174 @@
+{% extends "administrator/header.html" %}
+
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <ul>
+            <li>
+                <h3> BOTLAR </h3>
+            </li>
+        </ul>
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+        {% endif %}
+        <form action="" method="POST">
+            <table class="aramamotoru">
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <label>
+                                        Aranacak Bot Adı :
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="text" name="urlname">
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <button type="submit">Ara</button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+            </table>
+        </form>
+        <table border=1 class="table">
+            <thead>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    Bot Statu
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    Bot Name
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <label>
+                                    User Name
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td colspan="5">
+                        <ul>
+                            <li>
+                                <label>
+                                    Configuration
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </thead>
+        {% for url in urls %}
+            <tbody>
+                <td>
+                    {% if url['ens_statu'] == 1 %}
+                        <ul>
+                            <li>
+                                <label> Aktif </label>
+                            </li>
+                        </ul>
+                    {% elif url['ens_statu'] == 0 %}
+                        <ul>
+                            <li>
+                                <label> Pasif </label>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <label> {{ url['ens_title'] }} </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <label> {{ url['user_name'] }} </label>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                             <a class="button" onclick="ensDuzenle('{{ url_for('duzenle', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Düzenle </a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="button" onclick="ensSil('{{ url_for('sil', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Sil </a>
+                        </li>
+                    </ul>
+                </td>
+                <td colspan="1">
+                    <ul>
+                        <li>
+                            <a class="button" onclick="ensAktif('{{ url_for('aktifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Aktif Et </a>
+                        </li>
+                    </ul>
+                </td>
+                <td colspan="2">
+                    <ul>
+                        <li>
+                            <a class="button" onclick="ensPasif('{{ url_for('pasifyap', id=url['ens_id']) }}', `{{url['ens_title']}}`)"> Pasif Et </a>
+                        </li>
+                    </ul>
+                </td>
+            </tbody>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

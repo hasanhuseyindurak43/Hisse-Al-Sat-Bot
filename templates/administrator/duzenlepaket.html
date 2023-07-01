@@ -1,0 +1,67 @@
+{% extends "administrator/header.html" %}
+
+{% block admin %}
+
+<div class="sol">
+    <div class="uyepanelform">
+
+    </div>
+
+    <div class="dkullanicilar">
+        {% if onlineuser %}
+            {% for onuser in onlineuser %}
+                <div class="onlinekuldetail">
+                    <img src="{{ url_for('static', filename='online.ico') }}" alt="onlineico"><a href="{{url_for('profil2', id=onuser['user_id'])}}"><label>{{onuser['user_name']}}</label></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="orta">
+    <div class="body">
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if success %}
+            <div class="success">
+                {{ success }}
+            </div>
+            {% endif %}
+
+            {% for paket in paketler %}
+                <ul>
+                    <li>
+                        <label for="image">Paket Resmi Yükle</label>
+                        <input type="file" id="image" name="image">
+                    </li>
+                    <li>
+                        <label for="title">Paket Başlığı</label>
+                        <input type="text" id="title" name="title" value="{{ paket['pac_title'] }}">
+                    </li>
+                    <li>
+                        <label for="description">Açıklama</label>
+                        <textarea id="description" name="description" rows="4" cols="50">{{ paket['pac_content'] }}</textarea>
+                    </li>
+                    <li>
+                        <label for="price">Fiyat</label>
+                        <input type="text" id="price" name="price" value="{{ paket['pac_fiyat'] }}">
+                        <br>
+                        <small>Lütfen para birimi sistemine uygun bir fiyat girin. Örneğin: 1000.50</small>
+                    </li>
+                    <li>
+                        <button type="submit">Paketi Güncelle</button>
+                    </li>
+                </ul>
+            {% endfor %}
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

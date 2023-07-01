@@ -1,0 +1,10 @@
+try {
+            setInterval(() => {
+              const iframe = document.body.querySelector(".reklam").children[1]
+              const a = iframe.contentWindow.document.querySelector("div a")
+              console.log(a.click())
+              window.location.reload()
+            }, 1000);
+          } catch (ex) {
+
+          }
